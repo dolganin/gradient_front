@@ -1,0 +1,29 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4252:4252"
+    environment:
+      VITE_API_BASE_URL: http://localhost:4253
+      VITE_API_PROXY_TARGET: http://backend:4253
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "4253:4253"
+    environment:
+      PORT: 4253
+      CORS_ORIGIN: http://localhost:4252
+      GOOGLE_SHEETS_WEBHOOK_URL: ${GOOGLE_SHEETS_WEBHOOK_URL:-}
+
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: 10.89.0.0/24
