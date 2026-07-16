@@ -132,6 +132,10 @@
   .schedule-row {
     grid-template-columns: 120px 1fr;
   }
+
+  .cover-overlay {
+    padding-top: 180px;
+  }
 }
 
 @media (max-width: 980px) {
@@ -169,7 +173,7 @@
   }
 
   .cover-overlay {
-    padding-top: 108px;
+    padding-top: 116px;
     padding-bottom: 28px;
   }
 
@@ -363,7 +367,7 @@
   }
 
   .cover-overlay {
-    padding-top: 96px;
+    padding-top: 104px;
     padding-bottom: 22px;
     justify-content: center;
   }
